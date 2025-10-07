@@ -1,0 +1,65 @@
+.container{
+    /* background-color: brown; */
+    gap: 0;
+}
+body{
+    gap: 0;
+    background-image: url(math\ background.jpeg);
+    background-size: cover;
+    /* background-color: brown; */
+}
+.btn-primary{
+    width: 200px;
+    background-color:beige;
+    border: 2px solid black;
+    color: black;
+}
+.card-header{
+    background-color: honeydew;
+}
+.card-footer {
+    background-color: honeydew;
+}
+#callfake{
+    background-color: beige;
+    color: rgb(0, 0, 0);
+}
+#callfake:hover{
+    background-color:blueviolet;
+    border-color: black;
+    
+}
+#callproblem{
+    background-color: beige;
+}
+#callproblem:hover{
+    background-color:blueviolet;
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+}
+.Button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+}
+.col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-body{
+    background-color:azure;
+}
+
+@media only screen and (max-width: 775px){
+    .Button{
+        display: grid;
+        gap: 5px;
+    }   
+}
+
+/* .container-fluid {
+    background-color: black;
+} */
+
