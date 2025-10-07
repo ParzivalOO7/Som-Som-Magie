@@ -25,10 +25,14 @@ function CheckAnswer() {
   let invC3 = parseInt(document.getElementById("inp_C3").value);
 
   if (invB2 == CelB2 && invB3 == CelB3 && invC2 == CelC2 && invC3 == CelC3) {
-    alert("BINGO");
+    document.body.style.backgroundColor = "green";
   } else {
-    alert("Try Again");
+    document.body.style.backgroundColor = "red";
   }
+
+  setTimeout(() => {
+    document.body.style.backgroundColor = "white";
+  }, 2000);
 }
 
 function MakeProblem() {
