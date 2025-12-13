@@ -28,6 +28,11 @@ function clearInputs() {
 }
 
 function MakeProblem() {
+  const explanation = document.getElementById("explanation");
+  explanation.style.animation = "none";
+  explanation.offsetHeight;
+  explanation.style.animation = "";
+
   clearInputs();
 
   ansB2 = Math.floor(Math.random() * 25 + 1);

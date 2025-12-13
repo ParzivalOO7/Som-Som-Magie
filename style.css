@@ -1,65 +1,84 @@
-.container{
-    /* background-color: brown; */
-    gap: 0;
+.container {
+  /* background-color: brown; */
+  gap: 0;
 }
-body{
-    gap: 0;
-    background-image: url(math\ background.jpeg);
-    background-size: cover;
-    /* background-color: brown; */
+body {
+  gap: 0;
+  background-image: url(math\ background.jpeg);
+  background-size: cover;
+  /* background-color: brown; */
 }
-.btn-primary{
-    width: 200px;
-    background-color:beige;
-    border: 2px solid black;
-    color: black;
+.btn-primary {
+  width: 200px;
+  background-color: beige;
+  border: 2px solid black;
+  color: black;
 }
-.card-header{
-    background-color: honeydew;
+.card-header {
+  background-color: honeydew;
 }
 .card-footer {
-    background-color: honeydew;
+  background-color: honeydew;
 }
-#callfake{
-    background-color: beige;
-    color: rgb(0, 0, 0);
+#callfake {
+  background-color: beige;
+  color: rgb(0, 0, 0);
 }
-#callfake:hover{
-    background-color:blueviolet;
-    border-color: black;
-    
+#callfake:hover {
+  background-color: blueviolet;
+  border-color: black;
 }
-#callproblem{
-    background-color: beige;
+#callproblem {
+  background-color: beige;
 }
-#callproblem:hover{
-    background-color:blueviolet;
-    color: rgb(0, 0, 0);
-    border-color: rgb(0, 0, 0);
+#callproblem:hover {
+  background-color: blueviolet;
+  color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
 }
-.Button{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 8px;
+.Button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
 }
-.col{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.card-body{
-    background-color:azure;
+.card-body {
+  background-color: azure;
 }
 
-@media only screen and (max-width: 775px){
-    .Button{
-        display: grid;
-        gap: 5px;
-    }   
+@media only screen and (max-width: 775px) {
+  .Button {
+    display: grid;
+    gap: 5px;
+  }
+}
+
+.explanation {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background-color: #f0f6ff;
+  border-left: 4px solid #3b82f6;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlideIn 0.6s ease-out forwards;
+}
+
+.explanation h3 {
+  margin: 0 0 8px;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* .container-fluid {
     background-color: black;
 } */
-
