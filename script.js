@@ -1,57 +1,67 @@
-let CelA1 = document.getElementById("inp_A1");
-let CelA2 = document.getElementById("inp_A2");
-let CelA3 = document.getElementById("inp_A3");
-let CelA4 = document.getElementById("inp_A4");
+const CelA1 = document.getElementById("inp_A1");
+const CelA2 = document.getElementById("inp_A2");
+const CelA3 = document.getElementById("inp_A3");
+const CelA4 = document.getElementById("inp_A4");
 
-let CelB1 = document.getElementById("inp_B1");
-let CelB2 = document.getElementById("inp_B2");
-let CelB3 = document.getElementById("inp_B3");
-let CelB4 = document.getElementById("inp_B4");
+const CelB1 = document.getElementById("inp_B1");
+const inpB2 = document.getElementById("inp_B2");
+const inpB3 = document.getElementById("inp_B3");
+const CelB4 = document.getElementById("inp_B4");
 
-let CelC1 = document.getElementById("inp_C1");
-let CelC2 = document.getElementById("inp_C2");
-let CelC3 = document.getElementById("inp_C3");
-let CelC4 = document.getElementById("inp_C4");
+const CelC1 = document.getElementById("inp_C1");
+const inpC2 = document.getElementById("inp_C2");
+const inpC3 = document.getElementById("inp_C3");
+const CelC4 = document.getElementById("inp_C4");
 
-let CelD1 = document.getElementById("inp_D1");
-let CelD2 = document.getElementById("inp_D2");
-let CelD3 = document.getElementById("inp_D3");
-let CelD4 = document.getElementById("inp_D4");
+const CelD1 = document.getElementById("inp_D1");
+const CelD2 = document.getElementById("inp_D2");
+const CelD3 = document.getElementById("inp_D3");
+const CelD4 = document.getElementById("inp_D4");
+
+let ansB2, ansB3, ansC2, ansC3;
+
+function clearInputs() {
+  inpB2.value = "";
+  inpB3.value = "";
+  inpC2.value = "";
+  inpC3.value = "";
+}
+
+function MakeProblem() {
+  clearInputs();
+
+  ansB2 = Math.floor(Math.random() * 25 + 1);
+  ansB3 = Math.floor(Math.random() * 25 + 1);
+  ansC2 = Math.floor(Math.random() * 25 + 1);
+  ansC3 = Math.floor(Math.random() * 25 + 1);
+
+  CelA1.value = ansC3 + ansB2;
+  CelB4.value = ansB2 + ansB3;
+  CelD3.value = ansB3 + ansC3;
+  CelC4.value = ansC2 + ansC3;
+  CelD2.value = ansB2 + ansC2;
+  CelA4.value = ansC2 + ansB3;
+}
 
 function CheckAnswer() {
-  let invB2 = parseInt(document.getElementById("inp_B2").value);
-  let invB3 = parseInt(document.getElementById("inp_B3").value);
-  let invC2 = parseInt(document.getElementById("inp_C2").value);
-  let invC3 = parseInt(document.getElementById("inp_C3").value);
+  const vB2 = parseInt(inpB2.value, 10);
+  const vB3 = parseInt(inpB3.value, 10);
+  const vC2 = parseInt(inpC2.value, 10);
+  const vC3 = parseInt(inpC3.value, 10);
 
-  if (invB2 == CelB2 && invB3 == CelB3 && invC2 == CelC2 && invC3 == CelC3) {
-    document.body.style.backgroundColor = "green";
-  } else {
-    document.body.style.backgroundColor = "red";
-  }
+  const correct =
+    vB2 === ansB2 && vB3 === ansB3 && vC2 === ansC2 && vC3 === ansC3;
+
+  document.body.style.backgroundColor = correct ? "green" : "red";
 
   setTimeout(() => {
     document.body.style.backgroundColor = "white";
   }, 2000);
 }
 
-function MakeProblem() {
-  CelB2 = Math.floor(Math.random() * 25 + 1);
-  CelB3 = Math.floor(Math.random() * 25 + 1);
-  CelC2 = Math.floor(Math.random() * 25 + 1);
-  CelC3 = Math.floor(Math.random() * 25 + 1);
-
-  CelA1.value = CelC3 + CelB2;
-  CelB4.value = CelB2 + CelB3;
-  CelD3.value = CelB3 + CelC3;
-  CelC4.value = CelC2 + CelC3;
-  CelD2.value = CelB2 + CelC2;
-  CelA4.value = CelC2 + CelB3;
-}
-
 function FakeSolve() {
-  document.getElementById("inp_B2").value = CelB2;
-  document.getElementById("inp_B3").value = CelB3;
-  document.getElementById("inp_C2").value = CelC2;
-  document.getElementById("inp_C3").value = CelC3;
+  inpB2.value = ansB2;
+  inpB3.value = ansB3;
+  inpC2.value = ansC2;
+  inpC3.value = ansC3;
 }
