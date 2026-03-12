@@ -19,6 +19,7 @@ const CelD3 = document.getElementById("inp_D3");
 const CelD4 = document.getElementById("inp_D4");
 
 let ansB2, ansB3, ansC2, ansC3;
+let mode;
 
 function clearInputs() {
   inpB2.value = "";
@@ -35,17 +36,39 @@ function MakeProblem() {
 
   clearInputs();
 
-  ansB2 = Math.floor(Math.random() * 25 + 1);
-  ansB3 = Math.floor(Math.random() * 25 + 1);
-  ansC2 = Math.floor(Math.random() * 25 + 1);
-  ansC3 = Math.floor(Math.random() * 25 + 1);
+  // Randomly pick addition or multiplication — player has to figure it out
+  mode = Math.random() < 0.5 ? 'add' : 'mul';
 
-  CelA1.value = ansC3 + ansB2;
-  CelB4.value = ansB2 + ansB3;
-  CelD3.value = ansB3 + ansC3;
-  CelC4.value = ansC2 + ansC3;
-  CelD2.value = ansB2 + ansC2;
-  CelA4.value = ansC2 + ansB3;
+  ansB2 = Math.floor(Math.random() * 9 + 1);
+  ansB3 = Math.floor(Math.random() * 9 + 1);
+  ansC2 = Math.floor(Math.random() * 9 + 1);
+  ansC3 = Math.floor(Math.random() * 9 + 1);
+
+  if (mode === 'add') {
+    CelA1.value = ansC3 + ansB2;
+    CelB4.value = ansB2 + ansB3;
+    CelD3.value = ansB3 + ansC3;
+    CelC4.value = ansC2 + ansC3;
+    CelD2.value = ansB2 + ansC2;
+    CelA4.value = ansC2 + ansB3;
+  } else {
+    CelA1.value = ansC3 * ansB2;
+    CelB4.value = ansB2 * ansB3;
+    CelD3.value = ansB3 * ansC3;
+    CelC4.value = ansC2 * ansC3;
+    CelD2.value = ansB2 * ansC2;
+    CelA4.value = ansC2 * ansB3;
+  }
+}
+
+function showToast(message, type) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.className = "toast show " + type;
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
 }
 
 function CheckAnswer() {
@@ -57,11 +80,11 @@ function CheckAnswer() {
   const correct =
     vB2 === ansB2 && vB3 === ansB3 && vC2 === ansC2 && vC3 === ansC3;
 
-  document.body.style.backgroundColor = correct ? "green" : "red";
-
-  setTimeout(() => {
-    document.body.style.backgroundColor = "white";
-  }, 2000);
+  if (correct) {
+    showToast("Correct! Well done.", "toast-correct");
+  } else {
+    showToast("Not quite. Try again!", "toast-wrong");
+  }
 }
 
 function FakeSolve() {

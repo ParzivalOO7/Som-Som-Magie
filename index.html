@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
   <main class="container">
 
     <!-- begin grid van 1 row 3 cols -->
@@ -61,7 +62,7 @@
                     </div>
                   </div><br><br>
 
-                  <!-- 4Rows en 4Cols -->
+                  <!-- Action buttons -->
                   <div class="Button">
                     <a href="#" class="btn btn-primary" id="callfake" onclick="CheckAnswer()">Checken</a>
                     <a href="#" class="btn btn-primary" id="callproblem" onclick="MakeProblem()">Genereren</a>
@@ -70,7 +71,7 @@
                 </div><br>
                 <div id="explanation" class="explanation">
                   <h3>How it works</h3>
-                  <p>
+                  <p id="explanation-text">
                     Each number in the grid is the sum of the two numbers directly next to it (horizontal or vertical).
                     Some numbers are hidden.
                     Use the visible sums to calculate the missing numbers and fill them in.

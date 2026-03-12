@@ -1,68 +1,199 @@
-.container {
-  /* background-color: brown; */
-  gap: 0;
-}
+/* ── Base ─────────────────────────────────────────── */
 body {
-  gap: 0;
   background-image: url(math\ background.jpeg);
   background-size: cover;
-  /* background-color: brown; */
+  background-attachment: fixed;
+  min-height: 100vh;
 }
-.btn-primary {
-  width: 200px;
-  background-color: beige;
-  border: 2px solid black;
-  color: black;
+
+.container {
+  max-width: 540px;
 }
+
+/* ── Card ─────────────────────────────────────────── */
+.card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
 .card-header {
-  background-color: honeydew;
+  background: #111;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.5rem;
+  border-bottom: none;
 }
+
+.card-body {
+  background-color: #f9f9f9;
+  padding: 1.75rem 1.5rem 1.25rem;
+}
+
 .card-footer {
-  background-color: honeydew;
+  background-color: #e8e8e8;
+  color: #333;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-top: 1px solid #ccc;
 }
-#callfake {
-  background-color: beige;
-  color: rgb(0, 0, 0);
+
+/* ── Grid rows ────────────────────────────────────── */
+.row {
+  gap: 0;
+  row-gap: 10px;
 }
-#callfake:hover {
-  background-color: blueviolet;
-  border-color: black;
-}
-#callproblem {
-  background-color: beige;
-}
-#callproblem:hover {
-  background-color: blueviolet;
-  color: rgb(0, 0, 0);
-  border-color: rgb(0, 0, 0);
-}
-.Button {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 8px;
-}
+
 .col {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.card-body {
-  background-color: azure;
+  padding: 4px;
 }
 
-@media only screen and (max-width: 775px) {
-  .Button {
-    display: grid;
-    gap: 5px;
-  }
+/* ── Inputs ───────────────────────────────────────── */
+.form-control {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 2px solid #bbb;
+  background-color: #fff;
+  color: #111;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 80px;
+  padding: 0.45rem 0.25rem;
 }
 
+.form-control:focus {
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  outline: none;
+}
+
+/* Disabled = given values */
+.form-control:disabled {
+  background-color: #e0e0e0;
+  color: #333;
+  border-color: #999;
+  opacity: 1;
+}
+
+/* Editable = user input */
+.form-control:not(:disabled) {
+  background-color: #fff;
+  border-color: #111;
+  color: #111;
+}
+
+/* Correct/wrong states (JS adds these) */
+.correct .form-control:not(:disabled) {
+  background-color: #d1fae5;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+.wrong .form-control:not(:disabled) {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+/* ── Toast notification ───────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-correct {
+  background-color: #16a34a;
+  color: #fff;
+}
+
+.toast-wrong {
+  background-color: #dc2626;
+  color: #fff;
+}
+
+/* ── Buttons ──────────────────────────────────────── */
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.btn-primary {
+  width: 150px;
+  background-color: #111;
+  border: 2px solid #111;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #fff;
+  color: #111;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Override id-level styles */
+#callfake,
+#callproblem {
+  background-color: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+#callfake:hover,
+#callproblem:hover {
+  background-color: #fff;
+  color: #111;
+  border-color: #111;
+}
+
+/* ── Explanation box ──────────────────────────────── */
 .explanation {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   padding: 14px 18px;
-  background-color: #f0f6ff;
-  border-left: 4px solid #3b82f6;
+  background-color: #f0f0f0;
+  border-left: 4px solid #111;
+  border-radius: 0 10px 10px 0;
   opacity: 0;
   transform: translateY(10px);
   animation: fadeSlideIn 0.6s ease-out forwards;
@@ -70,6 +201,16 @@ body {
 
 .explanation h3 {
   margin: 0 0 8px;
+  color: #111;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.explanation p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.5;
 }
 
 @keyframes fadeSlideIn {
@@ -79,6 +220,20 @@ body {
   }
 }
 
-/* .container-fluid {
-    background-color: black;
-} */
+/* ── Responsive ───────────────────────────────────── */
+@media only screen and (max-width: 575px) {
+  .Button {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  .form-control {
+    font-size: 1rem;
+    max-width: 68px;
+  }
+}
