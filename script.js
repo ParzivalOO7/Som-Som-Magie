@@ -81,8 +81,8 @@ function bindButtonActions() {
     const icon = themeToggle.querySelector(".theme-toggle__icon");
     const label = themeToggle.querySelector(".theme-toggle__label");
 
-    icon.textContent = isDark ? "☀️" : "🌙";
-    label.textContent = isDark ? "Light mode" : "Dark mode";
+    icon.textContent = isDark ? "◑" : "◐";
+    label.textContent = "Contrast";
   });
 
   window.MakeProblem = MakeProblem;
@@ -91,9 +91,9 @@ function bindButtonActions() {
 }
 
 function addMotionEffects() {
-  const card = document.querySelector(".card");
-  const inputs = [...document.querySelectorAll(".form-control")];
-  const buttons = [...document.querySelectorAll(".btn-primary")];
+  const card = document.querySelector(".game-shell");
+  const inputs = [...document.querySelectorAll(".number-grid input")];
+  const buttons = [...document.querySelectorAll(".button")];
 
   animate(card, { opacity: [0, 1], y: [24, 0], scale: [0.98, 1] }, {
     duration: 0.7,
@@ -129,6 +129,7 @@ function addMotionEffects() {
 
 addMotionEffects();
 bindButtonActions();
+MakeProblem();
 
 function clearInputs() {
   inpB2.value = "";
@@ -169,7 +170,6 @@ function MakeProblem() {
     CelA4.value = ansC2 * ansB3;
   }
 
-  spawnFloatingNumbers();
 }
 
 function showToast(message, type) {
